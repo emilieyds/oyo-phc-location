@@ -1,0 +1,138 @@
+---
+title: "Primary health centre clustering in Oyo, Nigeria"
+author: "EmilieYODA"
+date: "2026-05-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+sf::sf_use_s2(FALSE)
+
+library(sf)
+library(tidyverse)
+library(knitr)
+library(see)
+```
+
+This analysis examines the spatial distribution of primary health centres (PHCs) in Oyo State, Nigeria. The main objectives are:
+
+1. To count the number of PHCs in Oyo State.
+2. To measure how close each PHC is to its nearest neighbouring PHC.
+3. To estimate how many PHCs are spatially clustered using 0.5 km, 1 km, and 2 km thresholds.
+
+The data preparation and cleaning steps are provided in the accompanying R scripts in the `scripts` folder. This report loads the processed outputs directly. For further details on processing workflow, please refer to the repository README.
+
+### 1. Data
+
+This analysis uses two geospatial datasets.
+
+- **[GRID3 Nigeria Health Facilities v2.0](https://data.humdata.org/dataset/grid3-nga-health-facilities-v2-0)**, used to identify PHC locations. This dataset provides a public, geocoded representation of health facility points in Nigeria as of 2024. This is an operational facility layer and is not exhaustive or independently validated (see [GRID3 data release notes](https://drive.google.com/file/d/143q2gmfqhaKphuOZqZMwIyrUg8hizAjI/view)). It incorporates updates from Nigeria’s Health Facility Registry (HFR), although the full HFR itself is not publicly downloadable. 
+
+- **[Nigeria COD-AB administrative boundaries](https://data.humdata.org/dataset/cod-ab-nga)**, used to map Oyo State and its Local Government Areas (LGAs). 
+
+PHCs are defined as facilities classified as `"Primary Health Center"` in the `facility_level_option` field of the GRID3 dataset. This is a narrow definition and does not include facilities classified as `"Primary Health Clinic"` or `"Health Post"`. For background on Nigeria’s facility classifications, see [Minimum Standards for Primary Health Care in Nigeria](http://ngfrepository.org.ng:8080/jspui/handle/123456789/3153) document published by National Primary Health Care Development Agency (NPHCDA). 
+
+```{r load-data}
+phc_m <- st_read("data/processed/oyo_phc_analysis.gpkg", quiet = TRUE)
+admin2_oyo <- st_read("data/processed/admin2_oyo.gpkg", quiet = TRUE)
+```
+
+### 2. Method
+
+First, facility coordinates were projected to **UTM Zone 31N (EPSG:32631)** before calculating distances. 
+
+Nearest-neighbour distance was then defined as the distance from each PHC to the closest other PHC. The calculation follows three steps: 1) calculate pairwise distances between PHCs using `st_distance()`, 2) remove self-distances so that each PHC is not matched to itself, 3) identify the minimum non-self distance for each PHC and convert it from metres to kilometres.
+
+**Note**: the resulting distances are straight-line Euclidean distances between PHC point locations. These distances measure spatial proximity between facilities, but they **do not** account for road networks, travel time, or other barriers to movement.
+
+PHCs are classified as clustered if another PHC is located within a given threshold. This analysis uses three thresholds:
+
+- 0.5 km
+- 1 km
+- 2 km
+
+Facilities beyond each threshold are classified as isolated for that threshold.
+
+**Note**: clustered in this report therefore means “near another PHC within the specified distance threshold.” It does not refer to a formal statistical cluster test, such as testing whether facilities deviate from complete spatial randomness.
+
+### 3. PHC count and nearest-neighbour distance summary
+
+The table summarizes the distance from each PHC to its nearest neighbouring PHC. The histogram below shows the distribution of nearest-neighbour distances across PHCs in Oyo State. Together, it suggests that many PHCs are located relatively close to another PHC (mean = 1.66km), although a smaller number of facilities are substantially more isolated.
+
+```{r distance}
+distance_summary <- phc_m %>%
+  st_drop_geometry() %>%
+  summarise(`Total PHCs` = n(),
+            `Mean nearest PHC distance (km)` = mean(nearest_phc_km, na.rm = TRUE),
+            `Median nearest PHC distance (km)` = median(nearest_phc_km, na.rm = TRUE),
+            `25th percentile distance (km)` = quantile(nearest_phc_km, 0.25, na.rm = TRUE),
+            `75th percentile distance (km)` = quantile(nearest_phc_km, 0.75, na.rm = TRUE),
+            `Maximum nearest PHC distance (km)` = max(nearest_phc_km, na.rm = TRUE)) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+
+kable(distance_summary, caption = "Summary of nearest-neighbour distance between PHCs")
+```
+
+
+```{r bar}
+distance_bar <- ggplot(phc_m %>% st_drop_geometry(), aes(x = nearest_phc_km)) +
+                         geom_histogram(binwidth = 1, fill = "skyblue",
+                                        color = "black", alpha = 0.8) +
+                         labs(title = "Distribution of nearest-neighbour distance between PHCs",
+                              x = "Nearest PHC distance (km)",
+                              y = "Number of PHCs") +
+                         theme_minimal() +
+                         theme(plot.title = element_text(face = "bold", size = 16),
+                               plot.subtitle = element_text(size = 12, hjust = 0))
+
+distance_bar
+```
+
+### 4. Clustered and isolated PHCs by threshold
+
+The table below shows how many PHCs are located near another PHC under each distance threshold. A PHC is classified as clustered if its nearest neighbouring PHC is within the specified threshold. Otherwise, it is classified as isolated for that threshold. For example, using the 0.5 km threshold, approximately 41% of PHCs are classified as clustered, meaning their nearest neighbouring PHC is located within 0.5 km. 
+
+```{r cluster}
+cluster_summary <- tibble(
+  Threshold = c("0.5 km", "1 km", "2 km"),
+  `Clustered PHCs` = c(sum(phc_m$nearest_phc_km <= 0.5, na.rm = TRUE),
+                       sum(phc_m$nearest_phc_km <= 1, na.rm = TRUE),
+                       sum(phc_m$nearest_phc_km <= 2, na.rm = TRUE)),
+  `Isolated PHCs` = c(sum(phc_m$nearest_phc_km > 0.5, na.rm = TRUE),
+                      sum(phc_m$nearest_phc_km > 1, na.rm = TRUE),
+                      sum(phc_m$nearest_phc_km > 2, na.rm = TRUE))) %>%
+  mutate(`Share clustered (%)` = round(`Clustered PHCs` / (`Clustered PHCs` + `Isolated PHCs`) * 100, 1))
+
+kable(cluster_summary, caption = "Number of clustered and isolated PHCs by distance threshold")
+```
+
+### 5. Buffer map of primary health centre  
+
+The map below visualizes 0.5 km, 1 km, and 2 km radius buffers around PHCs. Overlapping buffers indicate areas where PHCs are located close to one another. PHCs are concentrated around major urban agglomerations, particularly Ibadan, Oyo, and Ogbomosho.
+
+```{r buffer}
+buffer_0_5km <- st_buffer(phc_m, dist = 500)
+buffer_1km <- st_buffer(phc_m, dist = 1000)
+buffer_2km <- st_buffer(phc_m, dist = 2000)
+
+buffer <- ggplot() +
+  geom_sf(data = admin2_oyo) + 
+  geom_sf(data = buffer_2km, aes(fill = "2 km"), color = NA, alpha = 0.5) +
+  geom_sf(data = buffer_1km, aes(fill = "1 km"), color = NA, alpha = 0.6) +
+  geom_sf(data = buffer_0_5km, aes(fill = "0.5 km"), color = NA, alpha = 0.8) +
+  scale_fill_manual(name = "Buffer distance",
+                    values = c("0.5 km" = "yellow", "1 km" = "green", "2 km" = "blue")) +
+  labs(title = "Buffer of PHCs location",
+       subtitle = "0.5 km, 1 km, and 2 km -radius buffers") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 12, hjust = 0),
+        legend.position = "right")
+
+buffer
+```
+
+
+
