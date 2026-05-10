@@ -6,6 +6,8 @@ The analysis estimates:
 - nearest-neighbour distance between PHCs
 - the number of clustered and isolated PHCs using 0.5 km, 1 km, and 2 km thresholds
 
+Rendered report: https://emilieyds.github.io/oyo-phc-location/ 
+
 ---
 
 ## Repository structure
