@@ -3,6 +3,7 @@ install.packages(c("sf", "tidyverse", "see"))
 
 library(sf)
 library(tidyverse)
+library(see)
 
 # Create project folders 
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
@@ -62,6 +63,3 @@ st_write(admin2_oyo, "data/processed/admin2_oyo.gpkg", delete_dsn = TRUE)
 metadata_nga_url <- "https://data.humdata.org/dataset/cod-ab-nga"
 metadata_nga <- "data/metadata/nga_admin_boudaries.csv"
 download.file(url = metadata_nga_url, destfile = metadata_nga)
-
-file.rename("01-download-clean-data.R", 
-            "scripts/01-download-clean-data.R")
