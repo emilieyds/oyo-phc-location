@@ -18,11 +18,13 @@ data/
 
 outputs/              # exported maps, figures, and summary tables
 
+report/
+├── oyo_phc_clustering_report.Rmd
+├── oyo_phc_clustering_report.html
+
 scripts/
 ├── 01_download_clean_data.R
 ├── 02_nearest_neighbor_analysis.R
 ├── 03_visualization_outputs.R
+```
 
-report/
-├── oyo_phc_clustering_report.Rmd
-├── oyo_phc_clustering_report.html
