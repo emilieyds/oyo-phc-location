@@ -58,3 +58,6 @@ buffer <- ggplot() +
 # Save PNG
 ggsave(filename = "outputs/phc_buffer_map.png", 
        plot = buffer, width = 8, height = 6, dpi = 300)
+
+file.rename("03-visualization-outputs.R", 
+            "scripts/03-visualization-outputs.R")

@@ -35,8 +35,8 @@ This analysis uses two geospatial datasets.
 PHCs are defined as facilities classified as `"Primary Health Center"` in the `facility_level_option` field of the GRID3 dataset. This is a narrow definition and does not include facilities classified as `"Primary Health Clinic"` or `"Health Post"`. For background on Nigeria’s facility classifications, see [Minimum Standards for Primary Health Care in Nigeria](http://ngfrepository.org.ng:8080/jspui/handle/123456789/3153) document published by National Primary Health Care Development Agency (NPHCDA). 
 
 ```{r load-data}
-phc_m <- st_read("data/processed/oyo_phc_analysis.gpkg", quiet = TRUE)
-admin2_oyo <- st_read("data/processed/admin2_oyo.gpkg", quiet = TRUE)
+phc_m <- st_read("../data/processed/oyo_phc_analysis.gpkg", quiet = TRUE)
+admin2_oyo <- st_read("../data/processed/admin2_oyo.gpkg", quiet = TRUE)
 ```
 
 ### 2. Method

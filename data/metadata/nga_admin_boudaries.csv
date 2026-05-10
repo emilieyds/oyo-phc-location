@@ -141,7 +141,7 @@
     <meta charset="utf-8" />
 
       <meta name="csrf_field_name" content="_csrf_token" />
-      <meta name="_csrf_token" content="ImJkYzgyYTViMDQ5NTk1YTFkNWNlYWI4ZjFkMzMyY2E1MWMzODhmZGYi.af2X-w.LuCswVTVZ6suH-owQhhIwNE5kPk" />
+      <meta name="_csrf_token" content="ImY2YTk2NGRiMjU4ZGEzN2UwNjU1NmIxYjQ2NjU3MmU1ZTViNWU0ODEi.agAiNg.jqF4i9BdbzFZcqorrlmRFdAQCVs" />
 
       <meta name="referrer" content="always">
       <meta name="generator" content="ckan " />
@@ -273,37 +273,18 @@ Part of the dataset: [Global Subnational Administrative Boundaries](https://data
     },
     "@graph": [
         {
-            "@id": "https://data.humdata.org/organization/ocha-fiss",
-            "@type": "schema:Organization",
-            "schema:contactPoint": [
-                {
-                    "@id": "_:N4ffc0d905f4a4ecebc6518aaba60e2c8"
-                },
-                {
-                    "@id": "_:N6193a24c50c04751a27e81dd30c088e0"
-                }
-            ],
-            "schema:name": "OCHA Field Information Services Section (FISS)"
-        },
-        {
-            "@id": "_:N4ffc0d905f4a4ecebc6518aaba60e2c8",
-            "@type": "schema:ContactPoint",
-            "schema:contactType": "customer service",
-            "schema:name": "0ad0784a-b5e1-45d4-bf2d-5530f5d1d239",
-            "schema:url": "https://data.humdata.org"
-        },
-        {
-            "@id": "_:N6193a24c50c04751a27e81dd30c088e0",
-            "@type": "schema:ContactPoint",
-            "schema:contactType": "customer service",
-            "schema:name": "0ad0784a-b5e1-45d4-bf2d-5530f5d1d239",
-            "schema:url": "https://data.humdata.org"
+            "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5",
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5/download/nga_admin_boundaries.shp.zip",
+            "schema:description": "Nigeria administrative level 0-3 boundaries (COD-AB), SHP",
+            "schema:encodingFormat": "SHP",
+            "schema:name": "nga_admin_boundaries.shp.zip"
         },
         {
             "@id": "https://data.humdata.org/dataset/cod-ab-nga",
             "@type": "schema:Dataset",
             "schema:about": {
-                "@id": "_:N48fb9bd4c5b24d069f578a8082b67097"
+                "@id": "_:Nd42844b0c8fb40c598f3fe014323d2f5"
             },
             "schema:creator": {
                 "@id": "https://data.humdata.org/organization/ocha-fiss"
@@ -313,13 +294,13 @@ Part of the dataset: [Global Subnational Administrative Boundaries](https://data
             "schema:description": "Nigeria administrative level 0-3 boundaries (COD-AB) dataset version 01.  \n  \nThis dataset is structured into 3 levels:  \n- Admin 1: 37 State  \n- Admin 2: 774 Local Governement Area  \n- Admin 3: 714 Ward, partial coverage  \n  \n  \nDates associated with this dataset:  \n- 30 October 2025: dataset reviewed for accuracy and completeness  \n- 17 April 2019: valid for use by the humanitarian community  \n- 01 October 1996: last edit to the dataset before publishing  \n- 01 October 1996: boundaries created by the source  \n  \nContributed by [OCHA Nigeria](https://data.humdata.org/organization/ocha-nigeria).  \nQuality assured, configured, and published by [OCHA Field Information Services (FIS)](https://data.humdata.org/organization/ocha-fiss) and [HDX](https://data.humdata.org/organization/hdx).  \n  \nPart of the dataset: [Global Subnational Administrative Boundaries](https://data.humdata.org/dataset/cod-ab-global)",
             "schema:distribution": [
                 {
-                    "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c"
+                    "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5"
                 },
                 {
                     "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/7e30ec96-7f29-4ee8-9f4c-77633b353cbb"
                 },
                 {
-                    "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5"
+                    "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c"
                 },
                 {
                     "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/f1865f35-a07e-4de3-9183-e4222e475527"
@@ -327,13 +308,13 @@ Part of the dataset: [Global Subnational Administrative Boundaries](https://data
             ],
             "schema:identifier": "https://data.humdata.org/dataset/cod-ab-nga",
             "schema:includedInDataCatalog": {
-                "@id": "_:N882f21936e2641df97b84984f13be480"
+                "@id": "_:Nb1f761eb6d3646b99805087b4c6a78b0"
             },
             "schema:isAccessibleForFree": true,
             "schema:keywords": [
+                "gazetteer",
                 "geodata",
-                "administrative boundaries-divisions",
-                "gazetteer"
+                "administrative boundaries-divisions"
             ],
             "schema:license": "http://creativecommons.org/licenses/by/3.0/igo/legalcode",
             "schema:name": "Nigeria - Subnational Administrative Boundaries",
@@ -345,25 +326,44 @@ Part of the dataset: [Global Subnational Administrative Boundaries](https://data
             "schema:url": "https://data.humdata.org/dataset/cod-ab-nga"
         },
         {
-            "@id": "_:N882f21936e2641df97b84984f13be480",
+            "@id": "_:Nd42844b0c8fb40c598f3fe014323d2f5",
+            "@type": "schema:Thing",
+            "schema:name": "nga",
+            "schema:url": "https://data.humdata.org/group/nga"
+        },
+        {
+            "@id": "_:Nb1f761eb6d3646b99805087b4c6a78b0",
             "@type": "schema:DataCatalog",
             "schema:description": "",
             "schema:name": "Humanitarian Data Exchange",
             "schema:url": "https://data.humdata.org"
         },
         {
-            "@id": "_:N48fb9bd4c5b24d069f578a8082b67097",
-            "@type": "schema:Thing",
-            "schema:name": "nga",
-            "schema:url": "https://data.humdata.org/group/nga"
+            "@id": "https://data.humdata.org/organization/ocha-fiss",
+            "@type": "schema:Organization",
+            "schema:contactPoint": [
+                {
+                    "@id": "_:N76c150a36179487c858a3a18209dd189"
+                },
+                {
+                    "@id": "_:N7e74de0d67a14a8f843386dba15302e2"
+                }
+            ],
+            "schema:name": "OCHA Field Information Services Section (FISS)"
         },
         {
-            "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c",
-            "@type": "schema:DataDownload",
-            "schema:contentUrl": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c/download/nga_admin_boundaries.gdb.zip",
-            "schema:description": "Nigeria administrative level 0-3 boundaries (COD-AB), Geodatabase",
-            "schema:encodingFormat": "Geodatabase",
-            "schema:name": "nga_admin_boundaries.gdb.zip"
+            "@id": "_:N76c150a36179487c858a3a18209dd189",
+            "@type": "schema:ContactPoint",
+            "schema:contactType": "customer service",
+            "schema:name": "0ad0784a-b5e1-45d4-bf2d-5530f5d1d239",
+            "schema:url": "https://data.humdata.org"
+        },
+        {
+            "@id": "_:N7e74de0d67a14a8f843386dba15302e2",
+            "@type": "schema:ContactPoint",
+            "schema:contactType": "customer service",
+            "schema:name": "0ad0784a-b5e1-45d4-bf2d-5530f5d1d239",
+            "schema:url": "https://data.humdata.org"
         },
         {
             "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/f1865f35-a07e-4de3-9183-e4222e475527",
@@ -382,12 +382,12 @@ Part of the dataset: [Global Subnational Administrative Boundaries](https://data
             "schema:name": "nga_admin_boundaries.geojson.zip"
         },
         {
-            "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5",
+            "@id": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c",
             "@type": "schema:DataDownload",
-            "schema:contentUrl": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/01c65fd9-bd0c-4608-aa1e-2e86bbccf3e5/download/nga_admin_boundaries.shp.zip",
-            "schema:description": "Nigeria administrative level 0-3 boundaries (COD-AB), SHP",
-            "schema:encodingFormat": "SHP",
-            "schema:name": "nga_admin_boundaries.shp.zip"
+            "schema:contentUrl": "https://data.humdata.org/dataset/81ac1d38-f603-4a98-804d-325c658599a3/resource/8d902615-cf02-493c-8152-0ca6f283a44c/download/nga_admin_boundaries.gdb.zip",
+            "schema:description": "Nigeria administrative level 0-3 boundaries (COD-AB), Geodatabase",
+            "schema:encodingFormat": "Geodatabase",
+            "schema:name": "nga_admin_boundaries.gdb.zip"
         }
     ]
 }
@@ -1549,7 +1549,7 @@ Quality assured, configured, and published by <a href="https://data.humdata.org/
     
     
       <div id="dataset-downloads-data" class="d-none">
-        [{&#34;value&#34;: 56, &#34;date&#34;: &#34;2025-11-17&#34;}, {&#34;value&#34;: 41, &#34;date&#34;: &#34;2025-11-24&#34;}, {&#34;value&#34;: 84, &#34;date&#34;: &#34;2025-12-01&#34;}, {&#34;value&#34;: 63, &#34;date&#34;: &#34;2025-12-08&#34;}, {&#34;value&#34;: 88, &#34;date&#34;: &#34;2025-12-15&#34;}, {&#34;value&#34;: 71, &#34;date&#34;: &#34;2025-12-22&#34;}, {&#34;value&#34;: 60, &#34;date&#34;: &#34;2025-12-29&#34;}, {&#34;value&#34;: 91, &#34;date&#34;: &#34;2026-01-05&#34;}, {&#34;value&#34;: 118, &#34;date&#34;: &#34;2026-01-12&#34;}, {&#34;value&#34;: 188, &#34;date&#34;: &#34;2026-01-19&#34;}, {&#34;value&#34;: 148, &#34;date&#34;: &#34;2026-01-26&#34;}, {&#34;value&#34;: 113, &#34;date&#34;: &#34;2026-02-02&#34;}, {&#34;value&#34;: 148, &#34;date&#34;: &#34;2026-02-09&#34;}, {&#34;value&#34;: 128, &#34;date&#34;: &#34;2026-02-16&#34;}, {&#34;value&#34;: 161, &#34;date&#34;: &#34;2026-02-23&#34;}, {&#34;value&#34;: 94, &#34;date&#34;: &#34;2026-03-02&#34;}, {&#34;value&#34;: 150, &#34;date&#34;: &#34;2026-03-09&#34;}, {&#34;value&#34;: 136, &#34;date&#34;: &#34;2026-03-16&#34;}, {&#34;value&#34;: 149, &#34;date&#34;: &#34;2026-03-23&#34;}, {&#34;value&#34;: 123, &#34;date&#34;: &#34;2026-03-30&#34;}, {&#34;value&#34;: 157, &#34;date&#34;: &#34;2026-04-06&#34;}, {&#34;value&#34;: 126, &#34;date&#34;: &#34;2026-04-13&#34;}, {&#34;value&#34;: 187, &#34;date&#34;: &#34;2026-04-20&#34;}, {&#34;value&#34;: 162, &#34;date&#34;: &#34;2026-04-27&#34;}, {&#34;value&#34;: 106, &#34;date&#34;: &#34;2026-05-04&#34;}]
+        [{&#34;value&#34;: 56, &#34;date&#34;: &#34;2025-11-17&#34;}, {&#34;value&#34;: 41, &#34;date&#34;: &#34;2025-11-24&#34;}, {&#34;value&#34;: 84, &#34;date&#34;: &#34;2025-12-01&#34;}, {&#34;value&#34;: 63, &#34;date&#34;: &#34;2025-12-08&#34;}, {&#34;value&#34;: 88, &#34;date&#34;: &#34;2025-12-15&#34;}, {&#34;value&#34;: 71, &#34;date&#34;: &#34;2025-12-22&#34;}, {&#34;value&#34;: 60, &#34;date&#34;: &#34;2025-12-29&#34;}, {&#34;value&#34;: 91, &#34;date&#34;: &#34;2026-01-05&#34;}, {&#34;value&#34;: 118, &#34;date&#34;: &#34;2026-01-12&#34;}, {&#34;value&#34;: 188, &#34;date&#34;: &#34;2026-01-19&#34;}, {&#34;value&#34;: 148, &#34;date&#34;: &#34;2026-01-26&#34;}, {&#34;value&#34;: 113, &#34;date&#34;: &#34;2026-02-02&#34;}, {&#34;value&#34;: 148, &#34;date&#34;: &#34;2026-02-09&#34;}, {&#34;value&#34;: 128, &#34;date&#34;: &#34;2026-02-16&#34;}, {&#34;value&#34;: 161, &#34;date&#34;: &#34;2026-02-23&#34;}, {&#34;value&#34;: 94, &#34;date&#34;: &#34;2026-03-02&#34;}, {&#34;value&#34;: 150, &#34;date&#34;: &#34;2026-03-09&#34;}, {&#34;value&#34;: 136, &#34;date&#34;: &#34;2026-03-16&#34;}, {&#34;value&#34;: 149, &#34;date&#34;: &#34;2026-03-23&#34;}, {&#34;value&#34;: 123, &#34;date&#34;: &#34;2026-03-30&#34;}, {&#34;value&#34;: 157, &#34;date&#34;: &#34;2026-04-06&#34;}, {&#34;value&#34;: 126, &#34;date&#34;: &#34;2026-04-13&#34;}, {&#34;value&#34;: 187, &#34;date&#34;: &#34;2026-04-20&#34;}, {&#34;value&#34;: 162, &#34;date&#34;: &#34;2026-04-27&#34;}, {&#34;value&#34;: 150, &#34;date&#34;: &#34;2026-05-04&#34;}]
       </div>
       <h2 class="uppercase">Downloads</h2>
       <div id="dataset-downloads-chart">

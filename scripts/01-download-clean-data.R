@@ -9,6 +9,8 @@ dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
 dir.create("data/metadata", recursive = TRUE, showWarnings = FALSE)
 dir.create("outputs", recursive = TRUE, showWarnings = FALSE)
+dir.create("scripts", recursive = TRUE, showWarnings = FALSE)
+dir.create("report", recursive = TRUE, showWarnings = FALSE)
 
 # Download and load GRID3 Nigeria health facility data
 phc_url <- "https://data.humdata.org/dataset/a3b971e7-2f6e-4d1c-b4b2-87698545e5ca/resource/d471169a-7785-4c18-ad9e-0fef07a40dc5/download/nga_health_facilities_v2_0.gpkg"
@@ -60,3 +62,6 @@ st_write(admin2_oyo, "data/processed/admin2_oyo.gpkg", delete_dsn = TRUE)
 metadata_nga_url <- "https://data.humdata.org/dataset/cod-ab-nga"
 metadata_nga <- "data/metadata/nga_admin_boudaries.csv"
 download.file(url = metadata_nga_url, destfile = metadata_nga)
+
+file.rename("01-download-clean-data.R", 
+            "scripts/01-download-clean-data.R")
