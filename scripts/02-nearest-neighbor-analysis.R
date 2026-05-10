@@ -29,6 +29,3 @@ phc_m <- phc_m %>%
 
 # Save output file 
 st_write(phc_m, "data/processed/oyo_phc_analysis.gpkg", delete_dsn = TRUE)
-
-file.rename("02-nearst-neighbour-analysis.R", 
-            "scripts/02-nearst-neighbour-analysis.R")
