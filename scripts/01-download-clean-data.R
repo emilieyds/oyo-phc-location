@@ -3,6 +3,7 @@ install.packages(c("sf", "tidyverse", "see"))
 
 library(sf)
 library(tidyverse)
+library(see)
 
 # Create project folders 
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
