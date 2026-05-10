@@ -1,5 +1,5 @@
 ## Execersise 2 Primary health centre (PHC) clustering in Oyo State, Nigeria 
-This repository contains a spatial analysis of primary health centre (PHC) clustering in Oyo State, Nigeria using publicly available geospatial datasets.
+This repository contains a spatial analysis of primary health centre (PHC) clustering in Oyo State, Nigeria.
 
 The analysis estimates:
 - the number of PHCs in Oyo State
